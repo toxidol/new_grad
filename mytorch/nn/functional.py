@@ -17,34 +17,49 @@ def add_backward(grad_output, a, b):
     return a_grad, b_grad
 
 def sub_backward(grad_output, a, b):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    b_grad = grad_output * np.ones(b.shape) * -1
+    return a_grad, b_grad
 
 def matmul_backward(grad_output, a, b):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    b_grad = grad_output * np.ones(b.shape)
+    return a_grad, b_grad
 
 def outer_backward(grad_output, a, b):
     assert (a.shape[0] == 1 or a.ndim == 1)
     assert (b.shape[0] == 1 or b.ndim == 1)
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    b_grad = grad_output * np.ones(b.shape)
+    return a_grad, b_grad
 
 def mul_backward(grad_output, a, b):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape) * b
+    b_grad = grad_output * np.ones(b.shape) * a
+    return a_grad, b_grad
+    #raise NotImplementedError
 
 def div_backward(grad_output, a, b):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    b_grad = grad_output * np.ones(b.shape)
+    return a_grad, b_grad
 
 def log_backward(grad_output, a):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    return a_grad
 
 def exp_backward(grad_output,a):
-    raise NotImplementedError
+    a_grad = grad_output * np.ones(a.shape)
+    return a_grad
 
 
 def max_backward(grad_output, a):
-    pass
+    a_grad = grad_output * np.ones(a.shape)
+    return a_grad
 
 def sum_backward(grad_output, a):
-    pass
+    a_grad = grad_output * np.ones(a.shape)
+    return a_grad
 
 def SoftmaxCrossEntropy_backward(grad_output, a):
     """
@@ -53,4 +68,6 @@ def SoftmaxCrossEntropy_backward(grad_output, a):
           this directly rather than rely on the backward functions of
           more primitive operations.
     """
+    a_grad = grad_output * np.ones(a.shape)
+    return a_grad
     pass

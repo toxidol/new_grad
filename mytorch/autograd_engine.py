@@ -69,9 +69,12 @@ class Autograd():
         
         # TODO: Add all of the inputs to the self.memory_buffer using the add_spot() function
         # This will allow the gradients to be tracked
+        self.memory_buffer.add_spot(gradients_to_update)
         
         # TODO: Append an Operation object to the self.operation_list
-        raise NotImplementedError
+        operation = Operation(inputs, output, gradients_to_update, backward_operation)
+        self.operation_list.append(operation)
+        return
 
     def backward(self, divergence):
         """

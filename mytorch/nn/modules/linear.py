@@ -35,4 +35,6 @@ class Linear():
         #      the autograd engine after each operation
 
         #TODO: remember to return the computed value
+
+        
         raise NotImplementedError
